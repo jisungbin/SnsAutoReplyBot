@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_js"
+        android:icon="@drawable/ic_javascript"
+        android:title="@string/js_name"/>
+
+    <item
+        android:id="@+id/action_coffee"
+        android:icon="@drawable/ic_coffeescript"
+        android:title="@string/coffee_name"/>
+
+    <item
+        android:id="@+id/action_lua"
+        android:icon="@drawable/ic_luascript"
+        android:title="@string/lua_name"/>
+
+    <item
+        android:id="@+id/action_simple"
+        android:icon="@drawable/ic_event_note_black_24dp"
+        android:title="@string/simple_name"/>
+
+</menu>

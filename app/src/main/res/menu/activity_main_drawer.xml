@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/rate"
+            android:icon="@drawable/ic_star_black_24dp"
+            android:title="@string/string_rate" />
+        <item
+            android:id="@+id/share"
+            android:icon="@drawable/ic_menu_share"
+            android:title="@string/string_share" />
+        <item
+            android:id="@+id/email"
+            android:icon="@drawable/ic_email_black_24dp"
+            android:title="@string/string_send_email" />
+        <item
+            android:id="@+id/showAd"
+            android:icon="@drawable/ic_attach_money_black_24dp"
+            android:title="@string/string_give_money" />
+
+        <item
+            android:id="@+id/showApi"
+            android:icon="@drawable/ic_info_outline_black_24dp"
+            android:title="@string/string_api_list" />
+
+        <item
+            android:id="@+id/showCafe"
+            android:icon="@drawable/ic_local_cafe_black_24dp"
+            android:title="@string/show_cafe" />
+
+        <item
+            android:id="@+id/info"
+            android:icon="@drawable/ic_info_black_24dp"
+            android:title="@string/string_dev_info"/>
+
+        <item
+            android:id="@+id/theme"
+            android:icon="@drawable/ic_color_24dp"
+            android:title="@string/string_set_theme"/>
+
+        <item
+            android:id="@+id/exit"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="@string/string_finish" />
+    </group>
+
+</menu>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.sungbin.reply.bot">
+
+    <uses-permission
+        android:name="android.permission.READ_CONTACTS"
+        tools:node="remove" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+
+    <application
+        android:debuggable="false"
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+        android:icon="@drawable/icon"
+        android:label="@string/short_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:icon,android:label"
+        tools:ignore="HardcodedDebugMode,UnusedAttribute">
+        <activity
+            android:name="com.sungbin.reply.bot.view.activty.KavenActivity"
+            android:label="@string/title_activity_kaven"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".view.activty.SettingActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_setting"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.sungbin.reply.bot.view.activty.DebugActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_debug"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.sungbin.reply.bot.view.activty.SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.sungbin.reply.bot.view.activty.PermissionAgree"
+            android:label="@string/title_activity_permission_agree"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.sungbin.reply.bot.view.activty.ScriptEdit"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_script_add"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.sungbin.reply.bot.view.activty.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:host="*"
+                    android:mimeType="*/*"
+                    android:pathPattern=".*.kaven"
+                    android:scheme="file" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sungbin.reply.bot.view.activty.LogActivity"
+            android:label="@string/title_activity_log"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".view.sourcehub.view.activity.PostViewActivity"
+            android:label="@string/title_activity_board_view"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".view.sourcehub.view.activity.PostActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_post"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".view.sourcehub.view.activity.LoginActivity"
+            android:label="@string/hub_login"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".view.sourcehub.view.activity.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/hub_name"/>
+
+        <meta-data
+            android:name="com.sec.android.support.multiwindow"
+            android:value="true"/>
+        <meta-data
+            android:name="firebase_messaging_auto_init_enabled"
+            android:value="false"/>
+        <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="false"/>
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/icon"/>
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent"/>
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/app_name"/>
+
+        <service
+            android:name=".view.sourcehub.notification.FirebaseMessagingService"
+            android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.sungbin.reply.bot.api.PictureTransmission.AccessibilityServiceManager"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/config" />
+        </service>
+        <service
+            android:name="com.sungbin.reply.bot.listener.KakaoTalkListener"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.sungbin.reply.bot.listener.TileServiceListener"
+            android:icon="@drawable/ic_debug_black_24dp"
+            android:label="@string/short_name"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.sungbin.reply.bot.notification.NotificationButtonClick"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="BotOff" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

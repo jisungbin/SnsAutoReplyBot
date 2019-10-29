@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:diagonal="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.github.florent37.diagonallayout.DiagonalLayout
+        android:id="@+id/diagonalLayout"
+        android:layout_width="match_parent"
+        android:layout_height="266dp"
+        diagonal:diagonal_angle="15"
+        android:elevation="5dp"
+        android:paddingBottom="16dp"
+        diagonal:diagonal_direction="left"
+        diagonal:diagonal_position="bottom"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/side_nav_bar"
+            android:contentDescription="@string/string_background_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@android:color/white"
+            android:layout_gravity="top|left"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="70dp"
+            android:textSize="25sp"
+            tools:ignore="RtlHardcoded" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="105dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/string_dev"
+                android:textColor="@android:color/white"
+                android:layout_gravity="top|left"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="10sp"
+                tools:ignore="RtlHardcoded,SmallSp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/string_sungbin"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:layout_gravity="top|left"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_marginStart="10dp"
+                android:textSize="12sp"
+                tools:ignore="RtlHardcoded" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/now_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/now_version"
+            android:textStyle="italic"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="150dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
+
+    </com.github.florent37.diagonallayout.DiagonalLayout>
+
+</RelativeLayout>
